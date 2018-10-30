@@ -2,6 +2,11 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.5.
 
+##How to install
+1. Clone this repository to your machine
+1. Install npm (https://www.npmjs.com/get-npm)
+1. Open terminal and go to the directory of the project 
+1. run npm -install
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
