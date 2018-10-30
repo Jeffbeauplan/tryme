@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.5.
 
-##How to install
+## How to install
 1. Clone this repository to your machine
 1. Install npm (https://www.npmjs.com/get-npm)
 1. Open terminal and go to the directory of the project 
