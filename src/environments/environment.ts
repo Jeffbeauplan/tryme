@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+      apiKey: "AIzaSyCW6D3ueh5idKSskBftHNK7v6wdUoLQZK8",
+      authDomain: "triviaapp-d5638.firebaseapp.com",
+      databaseURL: "https://triviaapp-d5638.firebaseio.com",
+      projectId: "triviaapp-d5638",
+      storageBucket: "triviaapp-d5638.appspot.com",
+      messagingSenderId: "941317216463"
+  }
 };
 
 /*

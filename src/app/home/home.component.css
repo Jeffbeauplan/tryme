@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  align-items: center;
+  flex-flow: column nowrap;
+  color: white;
+
+}
+ .title {
+   display: flex;
+ }
+
+ .trivia-options {
+   display: flex;
+   flex-flow: row nowrap;
+   margin-top: 3rem;
+   margin-bottom: 30rem;
+ }
