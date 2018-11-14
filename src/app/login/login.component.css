@@ -1,0 +1,99 @@
+/*#bg {*/
+  /*position: fixed;*/
+  /*top: -50%;*/
+  /*left: -50%;*/
+  /*width: 200%;*/
+  /*height: 200%;*/
+/*}*/
+#bg img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  min-width: 100%;
+  max-height: 100%;
+}
+.bg {
+  width: 100%;
+  height: 100vh;
+  background-image: url("../login/images/bg-04.jpeg");
+  /*background-size: 1920px, 1280px, cover;*/
+  background-repeat: no-repeat;
+  /*background-position: 50% 90%, 50% bottom, center;*/
+}
+.titleText{
+  position: absolute;
+  top: 20%;
+  right: 20%;
+  left: 36%;
+  color: white;
+}
+/* style the container */
+.container {
+  display: flex;
+  position: absolute;
+  top: 20%;
+  right: 50%;
+  left: 35%;
+  margin-top: 10%;
+  padding-left: 10% ;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #f2f2f2;
+  padding: 20px 0 30px 0;
+  width: 30%;
+}
+
+/* style inputs and link buttons */
+input,
+.btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /*align-items: center;*/
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  margin: 5px 0;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none; /* remove underline from anchors */
+}
+
+input:hover,
+.btn:hover {
+  opacity: 1;
+}
+
+/* add appropriate colors to fb, twitter and google buttons */
+.fb {
+  background-color: #3B5998;
+  color: white;
+}
+
+.twitter {
+  background-color: #55ACEE;
+  color: white;
+}
+
+.google {
+  background-color: #dd4b39;
+  color: white;
+}
+
+/* style the submit button */
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+

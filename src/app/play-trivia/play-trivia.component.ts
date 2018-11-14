@@ -9,28 +9,41 @@ import {Challenge, Question} from "../models/challenge.model";
   styleUrls: ['./play-trivia.component.css']
 })
 export class PlayTriviaComponent implements OnInit {
-  trivias: any;
-  testChallenge: Challenge;
+  challengeList: Challenge[];
+  searchString : string;
 
   constructor(private firebaseService: FirebaseService, private challengeService: ChallengeService) { }
 
   ngOnInit() {
-    this.firebaseService.getTrivias().subscribe((trivias) => {this.trivias = trivias});
-    console.log(this.trivias)
+    this.getChallenges()
 
-    this.testChallenge = {
-      $key: '02',
-      title: 'TestChallenge',
-      author: 'Jeff',
-      category: [],
-      topScore: [],
-      topScorer: 'Jeff',
-      timesPlayed: 5,
-      questions: [] as Question[],
-    } as Challenge
+  }
 
-    this.challengeService.insertChallenge(this.testChallenge);
-    console.log("Inserted test challenge\n" + this.testChallenge)
+  getChallenges() {
+    this.challengeService.getData().snapshotChanges().subscribe(challenge => {
+      this.challengeList = [];
+      challenge.forEach(element => {
+        var challengeJSON = element.payload.toJSON();
+        challengeJSON["$key"] = element.key;
+        this.challengeList.push(challengeJSON as Challenge);
+      })
+
+      console.log(this.challengeList)
+    });
+  }
+
+  searchChallenge(input: string) {
+    console.log(input )
+    this.challengeService.getData().snapshotChanges().subscribe(challenge => {
+      this.challengeList = [];
+      challenge.forEach(element => {
+        var challengeJSON = element.payload.toJSON();
+        challengeJSON["$key"] = element.key;
+        if (challengeJSON["title"] == input) this.challengeList.push(challengeJSON as Challenge);
+      })
+      console.log(this.challengeList)
+    });
+
   }
 
 

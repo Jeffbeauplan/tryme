@@ -1,3 +1,9 @@
 .navbar-inverse::ng-deep {
   /*background: transparent;*/
 }
+img {
+  margin-top: 10px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}

@@ -1,0 +1,39 @@
+.gridWrapper{
+  margin-left: 15%;
+  margin-right: 10%;
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: row wrap;
+}
+.cardItem{
+  justify-content: space-around;
+  margin-bottom: 2rem;
+  margin-left: 2rem;
+}
+.cardActions{
+  display: flex;
+  justify-content: center;
+}
+
+.cardContent{
+  display: flex;
+  margin-left: 1rem;
+}
+
+.z-depth-4 {
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.3);
+}
+
+.searchBarContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.searchInput{
+
+}
+
+.searchButton {
+
+}

@@ -25,7 +25,8 @@ export class ChallengeService {
       topScore: challenge.topScore,
       topScorer: challenge.topScorer,
       timesPlayed: challenge.timesPlayed,
-      questions: challenge.questions
+      questions: challenge.questions,
+      numberOfQuestions: challenge.questions.length
     })
   }
 

@@ -1,0 +1,26 @@
+<div id="bg">
+  <img src="../login/images/bg-07.jpg">
+  <h1 class="titleText">Welcome to the TryMe app.</h1>
+
+  <div class="container">
+    <form>
+      <div class="row">
+        <h2 style="text-align:center">Login with Social Media</h2>
+        <div>
+          <a class="fb btn">
+            <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+          </a>
+          <br>
+          <a class="twitter btn">
+            <i class="fa fa-twitter fa-fw"></i> Login with Twitter
+          </a>
+          <br>
+          <a class="google btn" (click)="auth.login()">
+            <i class="fa fa-google fa-fw"></i> Login with Google
+          </a>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</div>

@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {AngularFireDatabase, AngularFireList} from "angularfire2/database";
 import {User} from "../models/user.model";
+import {AuthService} from "./auth.service";
 
 @Injectable({
   providedIn: 'root'
@@ -8,12 +9,21 @@ import {User} from "../models/user.model";
 export class UserService {
   userList: AngularFireList<any>;
   selectedUser: User = new User();
+  currentUser: any;
 
-  constructor(private firebase: AngularFireDatabase) { }
+  constructor(private firebase: AngularFireDatabase, private auth: AuthService) { }
 
   getData(){
     this.userList = this.firebase.list('users')
     return this.userList
+  }
+
+  getCurrentUser() {
+    this.auth.afAuth.authState.subscribe((user) => {
+      this.currentUser = user;
+    })
+
+    return this.currentUser;
   }
 
   insertUser(user: User){

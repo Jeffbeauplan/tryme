@@ -1,0 +1,27 @@
+<div class="searchBarContainer">
+  <mat-form-field>
+    <input matInput="search" (keyup.enter)="searchChallenge(searchString)" class="searchInput" placeholder="Search by Title" [(ngModel)] ="searchString">
+  </mat-form-field>
+  <!--<button mat-button class= "searchButton" (click)="searchChallenge(searchString)" >Search</button>-->
+</div>
+
+<div *ngIf="challengeList" class='md-padding gridWrapper' layout="row" layout-wrap>
+  <mat-card *ngFor="let challenge of challengeList" class="z-depth-4 cardItem" md-whiteframe="11"  flex-sm="45" flex-gt-sm="35" flex-gt-md="25" style="width: 350px;">
+    <mat-card-header>
+      <mat-card-title>{{challenge.title}}</mat-card-title>
+      <mat-card-subtitle>Author: {{challenge.author}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <div class="cardContent">
+      <span>Questions: {{challenge.numberOfQuestions}} <br>
+      Top Score: {{challenge.topScore}} <br>
+      Times Played: {{challenge.timesPlayed}}<br></span>
+    </div>
+
+    <br>
+    <div class="md-actions cardActions" layout="row" layout-align="end center">
+      <button style="background-color: #4CAF50; color: white; margin-right: 2rem;" class="z-depth-4" mat-button>Play</button>
+      <button style="background-color: #2196F3; color: white" class="z-depth-4" mat-button>Report</button>
+    </div>
+  </mat-card>
+</div>

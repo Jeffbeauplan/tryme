@@ -3,10 +3,11 @@ export class Challenge {
   title: string
   author: string
   category: string[]
-  topScore: number[]
+  topScore: number
   topScorer: string
   timesPlayed: number
   questions: Question[]
+  numberOfQuestions: number
 }
 
 export class Question {

@@ -1,2 +1,26 @@
-<app-navbar></app-navbar>
-<router-outlet></router-outlet>
+<div *ngIf="auth.afAuth.authState | async as user; else Login">
+  <app-navbar></app-navbar>
+  <router-outlet></router-outlet>
+</div>
+
+<!--<ng-template #Login>-->
+  <!--<mat-card>-->
+    <!--<div class="btn-group">-->
+      <!--<a class='btn btn-danger' style="width:12em;" (click)="auth.login()"> Sign in with Google</a>-->
+    <!--</div>-->
+    <!--<br /><br />-->
+    <!--<div class="btn-group">-->
+      <!--<a class='btn btn-primary ' href='' style="width:12em"> Sign in with Facebook</a>-->
+    <!--</div>-->
+    <!--<br /><br />-->
+    <!--<div class="btn-group">-->
+      <!--<a class='btn btn-info ' href='' style="width:12em"> Sign in with Twitter</a>-->
+    <!--</div>-->
+    <!--<br /><br />-->
+  <!--</mat-card>-->
+
+<!--</ng-template>-->
+<ng-template #Login>
+  <app-login></app-login>
+</ng-template>
+
