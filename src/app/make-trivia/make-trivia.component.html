@@ -1,3 +1,7 @@
 <p>
   make-trivia works!
 </p>
+
+<input *ngIf="testChallenge" [(ngModel)]="testChallenge.title"/>
+
+<button (click)="saveChallenge()">Save</button>

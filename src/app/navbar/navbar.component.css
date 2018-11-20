@@ -1,9 +1,28 @@
 .navbar-inverse::ng-deep {
-  /*background: transparent;*/
+  background: teal;
+  /*border-color: transparent;*/
 }
 img {
   margin-top: 10px;
   height: 30px;
   width: 30px;
   border-radius: 50%;
+}
+nav .navbar-nav li a{
+  color: white !important;
+}
+nav .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  background-color: transparent !important;
+  color: gainsboro !important;
+}
+
+nav .navbar-nav > .active{
+  color: gray !important;
+  /*background: #d65c14!important;*/
+}
+nav .navbar-nav > .active > a,
+nav .navbar-nav > .active > a:hover,
+nav .navbar-nav > .active > a:focus {
+  color: gray!important;
+  background: transparent;
 }

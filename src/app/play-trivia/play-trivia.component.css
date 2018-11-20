@@ -1,9 +1,10 @@
 .gridWrapper{
-  margin-left: 15%;
-  margin-right: 10%;
+  padding-left: 5%;
+  margin-right: 0%;
   display: flex;
   justify-content: flex-start;
   flex-flow: row wrap;
+  background-color: #f2f2f2;
 }
 .cardItem{
   justify-content: space-around;
@@ -26,14 +27,24 @@
 
 .searchBarContainer {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 2rem;
+  height: 90px;
+  flex-flow: row nowrap;
+  padding-right: 20%;
+  padding-left: 20%;
+  background-color: #f2f2f2;
 }
 
 .searchInput{
-
+  width: 200px!important;
 }
 
 .searchButton {
 
+}
+.pageContainer {
+  background-color: #f2f2f2;
+  margin-top: -2rem;
 }

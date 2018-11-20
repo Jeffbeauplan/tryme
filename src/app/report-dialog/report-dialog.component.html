@@ -1,0 +1,19 @@
+<span mat-dialog-title>Report</span>
+<div mat-dialog-content>
+  <!--<span>Title: {{challenge.title}}</span> <br>-->
+  <!--<span>Author: {{challenge.author}}</span> <br><br>-->
+  <mat-form-field>
+    <!--<input matInput [(ngModel)]="reason">-->
+    <mat-select [(ngModel)]="reason" placeholder="Select Reason">
+      <mat-option value="Innapropirate"> Innapropriate </mat-option>
+      <mat-option value="Sexist"> Sexist </mat-option>
+      <mat-option value="Hateful"> Hateful </mat-option>
+      <mat-option value="Offensive"> Offensive </mat-option>
+      <mat-option value="Other"> Other </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancelClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="reason" cdkFocusInitial>Report</button>
+</div>

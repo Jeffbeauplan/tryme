@@ -1,9 +1,11 @@
 .container {
   display: flex;
+  justify-content: center;
   align-items: center;
   flex-flow: column nowrap;
-  color: white;
-
+  color: gray;
+  margin-top: -80rem;
+  padding-right: 5rem;
 }
  .title {
    display: flex;
@@ -16,6 +18,31 @@
    margin-bottom: 30rem;
  }
 
-agm-map {
+*agm-map {
   height: 400px;
+}
+
+.homePic {
+  margin-top: -2rem;
+  height: 100%;
+  width: 100%;
+}
+.statContainer{
+  margin-top: 10rem;
+}
+
+.logoPic {
+  margin-left: 75%;
+  margin-top: -120rem;
+
+  height: 12%;
+  width: 12%;
+}
+
+img.avatarPic{
+  margin-top: -27rem;
+  margin-left: 0rem;
+  height: 110px;
+  width: 110px;
+  border-radius: 50%;
 }

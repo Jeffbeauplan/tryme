@@ -21,6 +21,7 @@ export class UserService {
   getCurrentUser() {
     this.auth.afAuth.authState.subscribe((user) => {
       this.currentUser = user;
+      console.log(this.currentUser);
     })
 
     return this.currentUser;

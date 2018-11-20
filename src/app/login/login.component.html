@@ -1,5 +1,5 @@
 <div id="bg">
-  <img src="../login/images/bg-07.jpg">
+  <img src="../../assets/images/bg-07.jpg">
   <h1 class="titleText">Welcome to the TryMe app.</h1>
 
   <div class="container">
@@ -7,11 +7,11 @@
       <div class="row">
         <h2 style="text-align:center">Login with Social Media</h2>
         <div>
-          <a class="fb btn">
+          <a class="fb btn" (click)="auth.loginWithFacebook()">
             <i class="fa fa-facebook fa-fw"></i> Login with Facebook
           </a>
           <br>
-          <a class="twitter btn">
+          <a class="twitter btn" (click)="auth.loginWithTwitter()">
             <i class="fa fa-twitter fa-fw"></i> Login with Twitter
           </a>
           <br>

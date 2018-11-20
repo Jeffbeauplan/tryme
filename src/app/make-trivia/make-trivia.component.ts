@@ -11,18 +11,25 @@ import {UserService} from "../service/user.service";
 export class MakeTriviaComponent implements OnInit {
   testChallenge: Challenge;
   question: Question;
+  questionList: Question[]
   currentUser: any;
 
-  constructor(private challengeService: ChallengeService, private  userServive: UserService) { }
+  constructor(private challengeService: ChallengeService, private  userService: UserService) { }
 
 
   ngOnInit() {
-    this.currentUser = this.userServive.getCurrentUser();
+    this.testChallenge = new Challenge()
+    this.currentUser = this.userService.getCurrentUser();
     this.question = {
       question: "What is my name?",
       correctAnswer: "Jeff Beauplan",
       wrongAnswers: ["Sam", "Daniel", "Josh"]
     } as Question;
+
+    this.questionList = []
+    for(var i =0; i < 10; i++){
+      this.questionList.push(this.question);
+    }
 
     this.testChallenge = {
       $key: '02',
@@ -32,12 +39,18 @@ export class MakeTriviaComponent implements OnInit {
       topScore: Math.floor(Math.random() * 150) + 1 ,
       topScorer: 'Jeff',
       timesPlayed: Math.floor(Math.random() * 100) + 1 ,
-      questions: [this.question] as Question[],
+      questions: this.questionList,
       numberOfQuestions: Math.floor(Math.random() * 20) + 1
     } as Challenge
 
     this.challengeService.insertChallenge(this.testChallenge);
     console.log("Inserted test challenge\n" + this.testChallenge)
+  }
+
+  saveChallenge(){
+    console.log(this.testChallenge.title)
+
+    // this.challengeService.insertChallenge(this.testChallenge);
   }
 
 }

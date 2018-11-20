@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
+import {UserService} from "../service/user.service";
+import {AuthService} from "../service/auth.service";
 
 @Component({
   selector: 'app-home',
@@ -7,13 +9,12 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  lat: number = 51.678418;
-  lng: number = 7.809007;
+  currentUser: any;
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router,  private userService: UserService, public auth: AuthService) { }
 
   ngOnInit() {
-
+    this.currentUser = this.userService.getCurrentUser();
   }
 
   goToPlayTrivia() {

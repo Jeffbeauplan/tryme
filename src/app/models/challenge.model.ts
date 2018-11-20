@@ -14,4 +14,5 @@ export class Question {
   question: string
   correctAnswer: string
   wrongAnswers: string[]
+  num: number
 }

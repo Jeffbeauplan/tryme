@@ -1,5 +1,6 @@
-<div class="container">
- <h1 class = "title">Do you have what it takes?</h1>
+<img class="homePic" src="../../assets/images/bg-10.jpg">
+<div *ngIf="auth.afAuth.authState | async as user" class="container">
+ <h1 class = "title">Hi {{user.displayName.toString().split(' ')[0]}}!</h1>
   <div class="trivia-options">
     <div class="trivia-option__play">
       <button mat-button (click)="goToPlayTrivia()">Play a Trivia</button>
@@ -8,9 +9,17 @@
       <button mat-button (click)="goToMakeTrivia()">Make a Trivia</button>
     </div>
   </div>
-  <h2>Leaderboards</h2>
+  <!--<img class="avatarPic" src = {{user.photoURL}} height="500px" width="50px"/>-->
+  <br>
+  <div class="statContainer">
+    <h2>Statistics</h2>
 
-  <agm-map [latitude]="lat" [longitude]="lng">
-    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-  </agm-map>
+    <!--<div class="statCardGrid">-->
+
+    <!--</div>-->
+  </div>
 </div>
+<img class="logoPic" src="../../assets/images/TMLogo.png">
+
+<!--<app-google-map style="width: 100%; display: flex; justify-content: center"></app-google-map>-->
+

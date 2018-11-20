@@ -17,6 +17,10 @@ export class ChallengeService {
     return this.challengeList
   }
 
+  getChallengeByKey(key: string){
+    return this.firebase.object('challenges/' + key)
+  }
+
   insertChallenge(challenge: Challenge){
     this.challengeList.push({
       title: challenge.title,

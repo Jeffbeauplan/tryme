@@ -3,7 +3,14 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {HomeComponent} from './home/home.component';
-import { MatCardModule, MatButtonModule , MatFormFieldModule, MatInputModule} from '@angular/material';
+import {
+  MatCardModule,
+  MatButtonModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatDialogModule,
+  MatSelectModule, MatSnackBarModule
+} from '@angular/material';
 import {FormsModule} from "@angular/forms";
 import {PlayTriviaComponent} from './play-trivia/play-trivia.component';
 import {MakeTriviaComponent} from './make-trivia/make-trivia.component';
@@ -21,11 +28,15 @@ import {AuthService} from "./service/auth.service";
 import { AgmCoreModule } from '@agm/core';
 import { MyChallengesComponent } from './my-challenges/my-challenges.component';
 import { LoginComponent } from './login/login.component';
+import { ChallengeViewComponent } from './challenge-view/challenge-view.component';
+import { ReportDialogComponent } from './report-dialog/report-dialog.component';
+import { GoogleMapComponent } from './google-map/google-map.component';
 //Routes
 
 const appRoutes: Routes =[
   {path: '', component: HomeComponent},
   {path: 'play', component: PlayTriviaComponent},
+  {path: 'play/:id', component: ChallengeViewComponent},
   {path: 'make-trivia', component: MakeTriviaComponent},
   {path: 'my-challenges', component: MyChallengesComponent},
   {path: 'login', component: LoginComponent}
@@ -41,16 +52,22 @@ console.log(environment)
     NavbarComponent,
     FooterComponent,
     MyChallengesComponent,
-    LoginComponent
+    LoginComponent,
+    ChallengeViewComponent,
+    ReportDialogComponent,
+    GoogleMapComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MatCardModule,
     MatButtonModule,
+    MatSnackBarModule,
     FormsModule,
     MatFormFieldModule,
+    MatSelectModule,
     MatInputModule,
+    MatDialogModule,
     MatButtonModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
@@ -62,6 +79,7 @@ console.log(environment)
     })
   ],
   providers: [FirebaseService, AuthService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ReportDialogComponent]
 })
 export class AppModule { }

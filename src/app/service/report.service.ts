@@ -7,20 +7,23 @@ import {Report} from "../models/report.model";
 })
 export class ReportService {
   reportList: AngularFireList<any>;
-  selectedReport: Report = new Report();
+  selectedReport: Report;
 
-  constructor(private firebase: AngularFireDatabase) { }
+  constructor(private firebase: AngularFireDatabase) {
+    this.reportList = this.getData();
+  }
 
   getData(){
     this.reportList = this.firebase.list('reports')
     return this.reportList
   }
 
-  insertReport(report: Report){
+  insertReport(report: Report) {
     this.reportList.push({
       user: report.user,
       reason: report.reason,
-      date: report.date
+      date: report.date,
+      challengeId: report.challengeKey
     })
   }
 

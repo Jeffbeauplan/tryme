@@ -2,7 +2,7 @@
   <div class="navbar-inner">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="">TryMe</a>
+        <img src="../../assets/images/TMLogo.png" height="500px" width="50px" class="" [routerLink]="['']">
       </div>
       <ul class="nav navbar-nav">
         <li> <a [routerLink]="['']">Home</a></li>
@@ -11,7 +11,9 @@
         <li> <a [routerLink]="['/my-challenges']">My Challenges</a></li>
       </ul>
       <ul *ngIf="auth.afAuth.authState | async as user; else showLogin" class="nav navbar-nav navbar-right">
-        <li><img src = {{user.photoURL}} height="500px" width="50px" /></li>
+        <li>
+            <img src = {{user.photoURL}} height="500px" width="50px"/>
+        </li>
         <li><a><span>Hello {{user.displayName}}</span></a></li>
         <li><a (click)="auth.logout()"><span>Logout</span></a></li>
       </ul>
