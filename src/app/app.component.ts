@@ -25,7 +25,7 @@ export class AppComponent {
   isAdmin() {
     this.userService.getData().snapshotChanges().subscribe( users => {
       users.forEach( user => {
-        this.admin = (user.key == this.currentUser.uid.toString());
+        if (user.key == this.currentUser.uid.toString()) this.admin = true;
       })
     })
   }
