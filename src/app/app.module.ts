@@ -9,7 +9,7 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatDialogModule,
-  MatSelectModule, MatSnackBarModule
+  MatSelectModule, MatSnackBarModule, MatSidenavModule
 } from '@angular/material';
 import {FormsModule} from "@angular/forms";
 import {PlayTriviaComponent} from './play-trivia/play-trivia.component';
@@ -31,6 +31,7 @@ import { LoginComponent } from './login/login.component';
 import { ChallengeViewComponent } from './challenge-view/challenge-view.component';
 import { ReportDialogComponent } from './report-dialog/report-dialog.component';
 import { GoogleMapComponent } from './google-map/google-map.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 //Routes
 
 const appRoutes: Routes =[
@@ -39,9 +40,9 @@ const appRoutes: Routes =[
   {path: 'play/:id', component: ChallengeViewComponent},
   {path: 'make-trivia', component: MakeTriviaComponent},
   {path: 'my-challenges', component: MyChallengesComponent},
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  {path: 'admin', component: AdminPanelComponent}
 ]
-console.log(environment)
 
 @NgModule({
   declarations: [
@@ -55,12 +56,14 @@ console.log(environment)
     LoginComponent,
     ChallengeViewComponent,
     ReportDialogComponent,
-    GoogleMapComponent
+    GoogleMapComponent,
+    AdminPanelComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MatCardModule,
+    MatSidenavModule,
     MatButtonModule,
     MatSnackBarModule,
     FormsModule,

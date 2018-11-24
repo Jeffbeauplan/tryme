@@ -1,0 +1,68 @@
+.pageContainer {
+  background-color: whitesmoke;
+  margin-top: -2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: column nowrap;
+  padding-bottom: 50rem;
+}
+
+.pageTitle{
+  padding-bottom: 1rem;
+}
+
+.optionTitle{
+  padding-right: 3px;
+  padding-bottom: 5rem;
+}
+
+.option {
+  padding-bottom: 5rem;
+}
+
+.cardOption{
+  margin-bottom: 2rem;
+  width: 35rem;
+}
+.cardItem{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  padding-bottom: 2px;
+
+}
+.cardInput{
+  display: flex;
+  align-items: flex-end;
+}
+
+.mainCard {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: column nowrap;
+}
+
+.questionActionButtons {
+  display: flex;
+  margin-top: -5rem;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  width: 150px;
+}
+
+.pageActionButtons {
+  display: flex;
+
+  flex-flow: row nowrap;
+  justify-content: center;
+  width: 150px;
+}
+
+button{
+  margin-bottom: 2rem;
+  margin: 1rem;
+}
+

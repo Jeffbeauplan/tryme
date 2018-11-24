@@ -1,6 +1,6 @@
 .navbar-inverse::ng-deep {
   background: teal;
-  /*border-color: transparent;*/
+  border-color: transparent;
 }
 img {
   margin-top: 10px;
@@ -25,4 +25,13 @@ nav .navbar-nav > .active > a:hover,
 nav .navbar-nav > .active > a:focus {
   color: gray!important;
   background: transparent;
+}
+
+.adminPanel {
+  display: flex;
+  align-items: center;
+}
+
+.adminIcon {
+  padding-right: 10px;
 }

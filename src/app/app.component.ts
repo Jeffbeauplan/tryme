@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {AuthService} from "./service/auth.service";
+import {UserService} from "./service/user.service";
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,24 @@ import {AuthService} from "./service/auth.service";
 })
 export class AppComponent {
   title = 'TriviaApp';
+  opened: boolean;
+  admin: boolean = false;
+  currentUser: any;
 
-  constructor(public auth: AuthService){}
+  constructor(public auth: AuthService, public userService: UserService){}
+
+  ngOnInit() {
+    this.auth.afAuth.authState.subscribe((user) => {
+      this.currentUser = user;
+      this.isAdmin();
+    })
+  }
+
+  isAdmin() {
+    this.userService.getData().snapshotChanges().subscribe( users => {
+      users.forEach( user => {
+        this.admin = (user.key == this.currentUser.uid.toString());
+      })
+    })
+  }
 }

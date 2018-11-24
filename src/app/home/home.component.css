@@ -4,7 +4,7 @@
   align-items: center;
   flex-flow: column nowrap;
   color: gray;
-  margin-top: -80rem;
+  margin-top: -70rem;
   padding-right: 5rem;
 }
  .title {
@@ -33,10 +33,10 @@
 
 .logoPic {
   margin-left: 75%;
-  margin-top: -120rem;
+  margin-top: -100rem;
 
-  height: 12%;
-  width: 12%;
+  height: 15%;
+  width: 9%;
 }
 
 img.avatarPic{

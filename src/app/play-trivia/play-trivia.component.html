@@ -1,12 +1,12 @@
 <div class="pageContainer">
-  <mat-card class="searchBarContainer">
+  <mat-card *ngIf="showSearch; else Filter" class="searchBarContainer">
     <span>Filter: </span>
     <mat-form-field>
-      <input matInput="search" (keyup.enter)="searchChallenge(search.title)" class="searchInput" placeholder="Title" [(ngModel)] ="search.title">
+      <input matInput="search" (keyup.enter)="searchChallenge(search.title, search.author)" class="searchInput" placeholder="Title" [(ngModel)] ="search.title">
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput="search" (keyup.enter)="searchChallenge(search.title)" class="searchInput" placeholder="Author" [(ngModel)] ="search.author">
+      <input matInput="search" (keyup.enter)="searchChallenge(search.title, search.author)" class="searchInput" placeholder="Author" [(ngModel)] ="search.author">
     </mat-form-field>
 
     <mat-select placeholder="Select Category" [(ngModel)]="search.category" style="width: 250px">
@@ -16,6 +16,7 @@
       <mat-option value="Cars">Cars</mat-option>
     </mat-select>
     <button type="button" class="btn btn-dark" (click)="searchChallenge(searchString)" >Search</button>
+    <button type="button " class="btn btn-dark" (click)="showSearch = !showSearch">Hide</button>
   </mat-card>
 
   <div *ngIf="challengeList" class='md-padding gridWrapper' layout="row" layout-wrap>
@@ -38,4 +39,9 @@
       </div>
     </mat-card>
   </div>
+
+  <ng-template #Filter>
+    <div class="btnSpace"></div>
+    <button type="button " class="btn btn-dark filterButton" (click)="showSearch = !showSearch">Show Filter</button>
+  </ng-template>
 </div>

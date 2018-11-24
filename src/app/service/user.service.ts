@@ -11,17 +11,20 @@ export class UserService {
   selectedUser: User = new User();
   currentUser: any;
 
-  constructor(private firebase: AngularFireDatabase, private auth: AuthService) { }
+  constructor(private firebase: AngularFireDatabase, private auth: AuthService) {
+    this.getData();
+    this.getCurrentUser();
+  }
 
   getData(){
-    this.userList = this.firebase.list('users')
+    this.userList = this.firebase.list('Users')
+    this.getCurrentUser()
     return this.userList
   }
 
   getCurrentUser() {
     this.auth.afAuth.authState.subscribe((user) => {
       this.currentUser = user;
-      console.log(this.currentUser);
     })
 
     return this.currentUser;
@@ -29,14 +32,14 @@ export class UserService {
 
   insertUser(user: User){
     this.userList.push({
-      firstName: user.firstName,
-      lastName: user.lastName,
+      firstName: this.currentUser.displayName.toString().split(' ')[0],
+      lastName: this.currentUser.displayName.toString().split(' ')[1],
       location: {
         city: user.location.city,
         zipcode: user.location.zipcode,
         country: user.location.country
       },
-      userName: user.userName,
+      userName: this.currentUser.displayName,
       isAdmin: user.isAdmin
     })
   }

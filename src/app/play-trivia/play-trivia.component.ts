@@ -22,6 +22,9 @@ export class PlayTriviaComponent implements OnInit {
   currentUser: any;
   reason: string;
   search: SearchObject = new SearchObject();
+  showSearch: boolean = true;
+  isAdmin: boolean = false;
+
 
   constructor(public dialog: MatDialog, private firebaseService: FirebaseService, private challengeService: ChallengeService, private router: Router,
               private userService: UserService, private reportService: ReportService, public snackBar: MatSnackBar) { }
@@ -45,15 +48,21 @@ export class PlayTriviaComponent implements OnInit {
     });
   }
 
-  searchChallenge(input: string) {
-    console.log(input )
+  searchChallenge(title: string, author: string) {
     this.challengeService.getData().snapshotChanges().subscribe(challenge => {
+      var tempList = this.challengeList;
       this.challengeList = [];
       challenge.forEach(element => {
         var challengeJSON = element.payload.toJSON();
         challengeJSON["$key"] = element.key;
-        if (challengeJSON["title"] == input) this.challengeList.push(challengeJSON as Challenge);
+        if (~challengeJSON["title"].toString().toLowerCase().indexOf(title.toLocaleLowerCase())
+          && ~challengeJSON["author"].toString().toLowerCase().indexOf(author.toLocaleLowerCase())) this.challengeList.push(challengeJSON as Challenge);
       })
+
+      if(this.challengeList.length < 1) {
+        this.challengeList = tempList;
+        this.openSnackBar("No challenges found");
+      }
       //console.log(this.challengeList)
     });
 
@@ -79,11 +88,11 @@ export class PlayTriviaComponent implements OnInit {
   reportChallenge(challenge: Challenge, reason: string) {
     var reportItem = new Report(challenge.author, reason, challenge.$key);
     this.reportService.insertReport(reportItem);
-    this.openSnackBar(challenge.title)
+    this.openSnackBar("Successfully reported " + challenge.title)
   }
 
   openSnackBar(message: string) {
-    this.snackBar.open("Successfully reported " + message, '', {
+    this.snackBar.open(message, '', {
       duration: 2000,
     });
   }

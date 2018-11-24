@@ -5,11 +5,13 @@
   justify-content: flex-start;
   flex-flow: row wrap;
   background-color: #f2f2f2;
+  padding-top: 10px;
 }
 .cardItem{
   justify-content: space-around;
   margin-bottom: 2rem;
   margin-left: 2rem;
+  
 }
 .cardActions{
   display: flex;
@@ -34,7 +36,7 @@
   flex-flow: row nowrap;
   padding-right: 20%;
   padding-left: 20%;
-  background-color: #f2f2f2;
+  background-color: teal;
 }
 
 .searchInput{
@@ -47,4 +49,14 @@
 .pageContainer {
   background-color: #f2f2f2;
   margin-top: -2rem;
+}
+
+.filterButton {
+  display: flex;
+  justify-content: center;
+  margin-left: 47%;
+}
+
+.btnSpace{
+  padding-bottom: 1rem;
 }

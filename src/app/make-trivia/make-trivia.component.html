@@ -1,7 +1,57 @@
-<p>
-  make-trivia works!
-</p>
+<div class="pageContainer">
+  <!--<mat-card class="mainCard">-->
+    <h2 style="color: teal" class="pageTitle">Create a Challenge</h2>
 
-<input *ngIf="testChallenge" [(ngModel)]="testChallenge.title"/>
+    <div class="option">
+      <span class="optionTitle">Title: </span>
+      <input *ngIf="testChallenge" [(ngModel)]="testChallenge.title"/>
+    </div>
 
-<button (click)="saveChallenge()">Save</button>
+    <div class="option">
+      <span class="optionTitle">Category: </span>
+      <mat-select placeholder="Select Category" [(ngModel)]="testChallenge.category" style="width: 150px" multiple>
+        <mat-option value="Educational">Educational</mat-option>
+        <mat-option value="History">History</mat-option>
+        <mat-option value="Food">Food</mat-option>
+        <mat-option value="Cars">Cars</mat-option>
+      </mat-select>
+    </div>
+
+
+    <!--<div class="option">-->
+      <!--<span class="optionTitle">Title: </span>-->
+      <!--<input *ngIf="testChallenge" [(ngModel)]="testChallenge.title"/>-->
+    <!--</div>-->
+
+    <div class="option">
+      <mat-card class="cardOption" *ngFor="let i of array" (click)="showCount()">
+        <span>{{i}}</span>
+        <mat-card-content>
+          <div class="cardInfo">
+            <div class="cardItem">
+              <span class="cardLabel">Question: </span>
+              <input class="cardInput" [(ngModel)]="questionList[i-1].question"/>
+            </div>
+            <div class="cardItem">
+              <span>Correct Answer: </span>
+              <input class="cardInput" [(ngModel)]="questionList[i-1].correctAnswer"/>
+            </div>
+          </div>
+        </mat-card-content>
+
+      </mat-card>
+    </div>
+
+    <div class="questionActionButtons">
+      <button mat-fab style="background-color: teal; color: white;" (click)="increaseArrayElement()">+</button>
+      <button [disabled]="array.length < 2" mat-fab style="background-color: teal; color: white;" (click)="decreaseArrayElement()">-</button>
+    </div>
+
+    <div class="pageActionButtons">
+      <button mat-raised-button (click)="saveChallenge()">Save</button>
+      <button mat-raised-button (click)="clearPage()">Clear</button>
+    </div>
+  <!--</mat-card>-->
+
+</div>
+
