@@ -1,7 +1,7 @@
 <img class="homePic" src="../../assets/images/bg-10.jpg">
 <div *ngIf="auth.afAuth.authState | async as user" class="container">
  <h1 class = "title">Hi {{user.displayName.toString().split(' ')[0]}}!</h1>
-  <div class="trivia-options">
+  <div class="trivia-options" >
     <div class="trivia-option__play">
       <button mat-button (click)="goToPlayTrivia()">Play a Trivia</button>
     </div>
@@ -22,4 +22,3 @@
 <img class="logoPic" src="../../assets/images/TMLogo.png">
 
 <!--<app-google-map style="width: 100%; display: flex; justify-content: center"></app-google-map>-->
-
