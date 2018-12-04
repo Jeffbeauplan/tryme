@@ -83,4 +83,9 @@ export class MyChallengesComponent implements OnInit {
       duration: 2000,
     });
   }
+
+  goToChallenge(challengeId: string) {
+    this.router.navigate(['/play', challengeId])
+  }
+  
 }

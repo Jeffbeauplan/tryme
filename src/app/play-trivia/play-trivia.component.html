@@ -10,18 +10,23 @@
     </mat-form-field>
 
     <mat-select placeholder="Select Category" [(ngModel)]="search.category" style="width: 250px">
-      <mat-option value="">All</mat-option>
-      <mat-option value="Educational">Educational</mat-option>
-      <mat-option value="History">History</mat-option>
-      <mat-option value="Food">Food</mat-option>
       <mat-option value="Cars">Cars</mat-option>
+      <mat-option value="Educational">Educational</mat-option>
+      <mat-option value="Food">Food</mat-option>
+      <mat-option value="History">History</mat-option>
+      <mat-option value="Other">Other</mat-option>
+      <mat-option value="Pop Culture">Pop Culture</mat-option>
+      <mat-option value="Riddle">Riddle</mat-option>
     </mat-select>
-    <button type="button" class="btn btn-dark" (click)="searchChallenge(search.title, search.author, search.category)" >Search</button>
+    <button type="button" class="btn btn-dark" (click)="searchChallenge(searchString)" >Search</button>
     <button type="button " class="btn btn-dark" (click)="showSearch = !showSearch">Hide</button>
   </mat-card>
 
   <div *ngIf="challengeList" class='md-padding gridWrapper' layout="row" layout-wrap>
     <mat-card *ngFor="let challenge of challengeList" class="z-depth-4 cardItem" md-whiteframe="11"  flex-sm="45" flex-gt-sm="35" flex-gt-md="25" style="width: 350px;">
+      <div class="md-actions cardActions">
+        <button style="background-color: transparent; color: gray;" class="reportFlag" (click)=" openDialog(challenge)"><i class="material-icons">flag</i></button>
+      </div>
       <mat-card-header>
         <mat-card-title class="challengeTitle">{{challenge.title}}</mat-card-title>
         <mat-card-subtitle>Author: {{challenge.author}}</mat-card-subtitle>
@@ -36,9 +41,6 @@
       <br>
       <div class="md-actions cardActions" layout="row" layout-align="end center">
         <button style="background-color: #4CAF50; color: white; margin-right: 2rem;" class="z-depth-4" (click)="goToChallenge(challenge.$key)" mat-button>Play</button>
-        <button style="background-color: #2196F3; color: white" class="z-depth-4" (click)="openDialog(challenge)" mat-button>Report</button>
-        <button style="background: transparent; border-color: transparent"><i class="material-icons" (click)="openDeleteConfirmation(challenge)" style="color: #dd4b39">delete</i></button>
-        <!--<button *ngIf="admin" style="background-color: indianred; color: white" class="z-depth-4" (click)="deleteChallenge(challenge.$key)" mat-button>Delete</button>-->
       </div>
     </mat-card>
   </div>
