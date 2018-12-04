@@ -8,7 +8,7 @@
 <div *ngIf="challengeList" class='md-padding gridWrapper' layout="row" layout-wrap>
   <mat-card *ngFor="let challenge of challengeList" class="z-depth-4 cardItem" md-whiteframe="11"  flex-sm="45" flex-gt-sm="35" flex-gt-md="25" style="width: 350px;">
     <mat-card-header>
-      <mat-card-title>{{challenge.title}}</mat-card-title>
+      <mat-card-title class="challengeTitle">{{challenge.title}}</mat-card-title>
       <mat-card-subtitle>Author: {{challenge.author}}</mat-card-subtitle>
     </mat-card-header>
 
@@ -20,8 +20,7 @@
 
     <br>
     <div class="md-actions cardActions" layout="row" layout-align="end center">
-      <button style="background-color: #4CAF50; color: white; margin-right: 2rem;" class="z-depth-4" mat-button>Play</button>
-      <button style="background-color: #2196F3; color: white" class="z-depth-4" mat-button>Report</button>
+      <button style="background-color: #4CAF50; color: white; margin-right: 2rem;" class="z-depth-4" mat-button (click)="goToChallenge(challenge.$key)">Play</button>
     </div>
   </mat-card>
 </div>

@@ -10,10 +10,13 @@
     </mat-form-field>
 
     <mat-select placeholder="Select Category" [(ngModel)]="search.category" style="width: 250px">
-      <mat-option value="Educational">Educational</mat-option>
-      <mat-option value="History">History</mat-option>
-      <mat-option value="Food">Food</mat-option>
       <mat-option value="Cars">Cars</mat-option>
+      <mat-option value="Educational">Educational</mat-option>
+      <mat-option value="Food">Food</mat-option>
+      <mat-option value="History">History</mat-option>
+      <mat-option value="Other">Other</mat-option>
+      <mat-option value="Pop Culture">Pop Culture</mat-option>
+      <mat-option value="Riddle">Riddle</mat-option>
     </mat-select>
     <button type="button" class="btn btn-dark" (click)="searchChallenge(searchString)" >Search</button>
     <button type="button " class="btn btn-dark" (click)="showSearch = !showSearch">Hide</button>

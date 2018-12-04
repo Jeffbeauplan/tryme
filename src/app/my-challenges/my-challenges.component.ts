@@ -47,4 +47,9 @@ export class MyChallengesComponent implements OnInit {
     });
 
   }
+
+  goToChallenge(challengeId: string) {
+    this.router.navigate(['/play', challengeId])
+  }
+  
 }
