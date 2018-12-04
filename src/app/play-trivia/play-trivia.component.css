@@ -76,3 +76,12 @@
 .btnSpace{
   padding-bottom: 1rem;
 }
+
+.challengeTitle {
+    font-size: 2rem;
+    color: 	#008080;
+}
+
+.cardContent {
+  font-size: 1.6rem;
+}

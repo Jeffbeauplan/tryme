@@ -43,7 +43,8 @@ export class ChallengeViewComponent implements OnInit {
       this.challenge = challengeJSON as Challenge;
       this.answerList = new Array<string>(this.questionList.length)
     });
-  }
+    }
+
 
   submitChallenge() {
     this.challenge.timesPlayed++;

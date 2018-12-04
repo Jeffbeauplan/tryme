@@ -36,6 +36,10 @@
               <span>Correct Answer: </span>
               <input class="cardInput" [(ngModel)]="question.correctAnswer"/>
             </div>
+            <div class="cardItem">
+              <span>Hint: </span>
+              <input class="cardInput" [(ngModel)]="questionList[i-1].hint"/>
+            </div>
           </div>
         </mat-card-content>
 
@@ -54,4 +58,3 @@
   <!--</mat-card>-->
 
 </div>
-

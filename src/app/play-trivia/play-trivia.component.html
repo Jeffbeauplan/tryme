@@ -23,7 +23,7 @@
   <div *ngIf="challengeList" class='md-padding gridWrapper' layout="row" layout-wrap>
     <mat-card *ngFor="let challenge of challengeList" class="z-depth-4 cardItem" md-whiteframe="11"  flex-sm="45" flex-gt-sm="35" flex-gt-md="25" style="width: 350px;">
       <mat-card-header>
-        <mat-card-title>{{challenge.title}}</mat-card-title>
+        <mat-card-title class="challengeTitle">{{challenge.title}}</mat-card-title>
         <mat-card-subtitle>Author: {{challenge.author}}</mat-card-subtitle>
       </mat-card-header>
 
