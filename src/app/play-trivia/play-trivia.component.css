@@ -11,7 +11,7 @@
   justify-content: space-around;
   margin-bottom: 2rem;
   margin-left: 2rem;
-  
+
 }
 .cardActions{
   display: flex;
@@ -75,4 +75,13 @@
 
 .btnSpace{
   padding-bottom: 1rem;
+}
+
+.challengeTitle {
+    font-size: 2rem;
+    color: 	#008080;
+}
+
+.cardContent {
+  font-size: 1.6rem;
 }

@@ -12,3 +12,23 @@
   margin-left: 2rem;
 }
 
+button{
+  margin-bottom: 2rem;
+  margin: 1rem;
+}
+
+.submitButton {
+  text-align: center;
+  background: #008080;
+  margin: auto;
+}
+
+.title {
+  font-size: 2rem;
+  color: 	#008080;
+}
+
+.subtitle {
+  font-size: 2rem;
+  color: #000000;
+}

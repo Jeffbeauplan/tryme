@@ -28,6 +28,7 @@ export class MakeTriviaComponent implements OnInit {
     this.question = {
       question: "",
       correctAnswer: "",
+      hint: "",
       //wrongAnswers: ["Sam", "Daniel", "Josh"]
     } as Question;
 

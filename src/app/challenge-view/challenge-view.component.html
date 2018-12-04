@@ -1,18 +1,18 @@
 <div *ngIf="questionList" class="md-padding questionListContainer" layout="col" layout-wrap>
   <mat-card *ngFor="let question of questionList" class="z-depth-4 cardItem" md-whiteframe="11"  flex-sm="45" flex-gt-sm="35" flex-gt-md="25" style="width: 500px;">
     <mat-card-header>
-      <mat-card-title>Question: {{question.num}}</mat-card-title>
-      <mat-card-subtitle>{{question.question}}</mat-card-subtitle>
+      <mat-card-title class="title">Question: {{question.num}}</mat-card-title>
+      <mat-card-subtitle class="subtitle">{{question.question}}</mat-card-subtitle>
     </mat-card-header>
 
     <mat-card-content>
-      <input>
+      <input placeholder="Answer" size="35">
+      <button mat-raised-button data-placement="right" title={{question.hint}} onmouseenter="$(this).tooltip('show')"> Hint </button>
     </mat-card-content>
-  </mat-card>
 
+  </mat-card>
   <!--<div *ngFor="let question of questionList">-->
     <!--<span>{{question.question}}</span><br>-->
     <!--<input>-->
   <!--</div>-->
 </div>
-

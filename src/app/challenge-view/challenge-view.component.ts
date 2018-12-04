@@ -36,6 +36,7 @@ export class ChallengeViewComponent implements OnInit {
       console.log(this.questionList)
       console.log(this.questionList)
     });
-  }
+    }
+
 
 }
