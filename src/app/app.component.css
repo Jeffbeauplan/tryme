@@ -1,5 +1,5 @@
 .navbar-inverse::ng-deep {
-  background: teal;
+  background: rgba(38,36,36,1);
   border-color: transparent;
 }
 

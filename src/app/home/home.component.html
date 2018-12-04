@@ -1,5 +1,6 @@
-<img class="homePic" src="../../assets/images/bg-10.jpg">
+<img class="homePic" src="../../assets/images/bg-12.jpg">
 <div *ngIf="auth.afAuth.authState | async as user" class="container">
+
  <h1 class = "title">Hi {{user.displayName.toString().split(' ')[0]}}!</h1>
   <div class="trivia-options" >
     <div class="trivia-option__play">
@@ -11,7 +12,7 @@
   </div>
   <!--<img class="avatarPic" src = {{user.photoURL}} height="500px" width="50px"/>-->
   <br>
-  <div class="statContainer">
+  <div class="statContainer" style="background-color: white">
     <h2>Statistics</h2>
 
     <!--<div class="statCardGrid">-->
