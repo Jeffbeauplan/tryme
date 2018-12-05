@@ -2,6 +2,10 @@
   background: rgba(0,0,46,1);
   border-color: transparent;
 }
+a{
+  font-family: 'Montserrat', sans-serif;
+}
+
 img {
   margin-top: 10px;
   height: 30px;
