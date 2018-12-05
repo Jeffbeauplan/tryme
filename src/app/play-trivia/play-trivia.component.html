@@ -3,22 +3,22 @@
     <div class="color-overlay"></div>
   <mat-card *ngIf="showSearch; else Filter" class="searchBarContainer">
     <span>Filter: </span>
-    <mat-form-field>
+    <mat-form-field id="words">
       <input matInput="search" (keyup.enter)="searchChallenge(search.title, search.author)" class="searchInput" placeholder="Title" [(ngModel)] ="search.title">
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field id="words">
       <input matInput="search" (keyup.enter)="searchChallenge(search.title, search.author)" class="searchInput" placeholder="Author" [(ngModel)] ="search.author">
     </mat-form-field>
 
-    <mat-select placeholder="Select Category" [(ngModel)]="search.category" style="width: 250px">
-      <mat-option value="Educational">Educational</mat-option>
-      <mat-option value="History">History</mat-option>
-      <mat-option value="Food">Food</mat-option>
-      <mat-option value="Cars">Cars</mat-option>
+    <mat-select placeholder="Select Category" [(ngModel)]="search.category" style="width: 250px" id="words">
+      <mat-option value="Educational" id="words">Educational</mat-option>
+      <mat-option value="History" id="words">History</mat-option>
+      <mat-option value="Food" id="words">Food</mat-option>
+      <mat-option value="Cars" id="words">Cars</mat-option>
     </mat-select>
-    <button type="button" class="btn btn-dark" (click)="searchChallenge(searchString)" >Search</button>
-    <button type="button " class="btn btn-dark" (click)="showSearch = !showSearch">Hide</button>
+    <button type="button" class="btn btn-dark"  style="font-size: 20px;" (click)="searchChallenge(searchString)" >Search</button>
+    <button type="button " class="btn btn-dark" style="font-size: 20px;" (click)="showSearch = !showSearch">Hide</button>
   </mat-card>
 
   <div *ngIf="challengeList" class='md-padding gridWrapper' layout="row" layout-wrap>

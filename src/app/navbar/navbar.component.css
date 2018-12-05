@@ -2,7 +2,7 @@
   background: rgba(0,0,46,1);
   border-color: transparent;
 }
-a{
+li {
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -14,6 +14,7 @@ img {
 }
 nav .navbar-nav li a{
   color: white !important;
+  font-family: 'Montserrat', sans-serif;
 }
 nav .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
   background-color: transparent !important;

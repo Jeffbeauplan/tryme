@@ -1,3 +1,6 @@
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Poppins|Iceland" rel="stylesheet">
+</head>
 <div *ngIf="auth.afAuth.authState | async as user; else Login">
   <mat-sidenav-container class="example-container">
     <mat-sidenav #sidenav mode="over" [(opened)]="opened" style="width: 250px" class="sidenavContainer">
