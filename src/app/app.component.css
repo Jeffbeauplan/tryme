@@ -12,6 +12,15 @@ border-radius: 50%;
 /*filter: invert(1);*/
 }
 
+.avImg{
+  margin-top: 10px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  -webkit-filter: invert(1);
+  filter: invert(1);
+}
+
 .lgImg {
   border-radius: 50%;
   height: 100px;

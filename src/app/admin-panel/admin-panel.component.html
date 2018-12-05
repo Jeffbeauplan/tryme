@@ -1,4 +1,4 @@
-<div class="pageContainer">
+<div *ngIf="admin; else NoAccess" class="pageContainer">
   <mat-card *ngIf="showSearch; else Filter" class="searchBarContainer">
     <span>Filter: </span>
     <mat-form-field>
@@ -51,3 +51,10 @@
     <button type="button " class="btn btn-dark filterButton" (click)="showSearch = !showSearch">Show Filter</button>
   </ng-template>
 </div>
+
+
+<ng-template #NoAccess>
+  <div>
+    <h2>Unauthorized Access: You do not have admin privileges</h2>
+  </div>
+</ng-template>

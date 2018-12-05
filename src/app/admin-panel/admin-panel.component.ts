@@ -23,7 +23,7 @@ export class AdminPanelComponent implements OnInit {
   reason: string;
   search: SearchObject = new SearchObject();
   showSearch: boolean = true;
-  isAdmin: boolean = false;
+  admin: boolean = false;
 
 
   constructor(public dialog: MatDialog, private firebaseService: FirebaseService, private challengeService: ChallengeService, private router: Router,
@@ -31,6 +31,8 @@ export class AdminPanelComponent implements OnInit {
 
   ngOnInit() {
     this.getReports()
+    this.currentUser = this.userService.getCurrentUser()
+    this.isAdmin()
   }
 
   getReports() {
@@ -114,6 +116,14 @@ export class AdminPanelComponent implements OnInit {
     this.snackBar.open(message, '', {
       duration: 2000,
     });
+  }
+
+  isAdmin() {
+    this.userService.getData().snapshotChanges().subscribe( users => {
+      users.forEach( user => {
+        if (user.key == this.currentUser.uid.toString()) this.admin = true;
+      })
+    })
   }
 
 }
