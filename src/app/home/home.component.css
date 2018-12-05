@@ -9,6 +9,7 @@
 }
  .title {
    display: flex;
+   font-family: 'Montserrat', sans-serif;
  }
 
  .trivia-option__make{
@@ -20,6 +21,7 @@
    margin: 0.875rem 0.75rem;
    border-radius: 0.3125rem;
    text-align: center;
+   font-family: 'Montserrat', sans-serif;
  }
 
  .trivia-option__play{
@@ -31,6 +33,7 @@
    margin: 0.875rem 0.75rem;
    border-radius: 0.3125rem;
    text-align: center;
+   font-family: 'Montserrat', sans-serif;
  }
 
  .trivia-options {
@@ -38,6 +41,7 @@
    flex-flow: row nowrap;
    margin-top: 3rem;
    margin-bottom: 3rem;
+   font-family: 'Montserrat', sans-serif;
  }
 
 *agm-map {

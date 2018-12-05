@@ -1,4 +1,6 @@
+<head><link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet"></head>
 <img class="homePic" src="../../assets/images/bg-10.jpg">
+
 <div *ngIf="auth.afAuth.authState | async as user" class="container">
  <h1 class = "title">Hi {{user.displayName.toString().split(' ')[0]}}!</h1>
   <div class="trivia-options" >

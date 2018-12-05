@@ -1,4 +1,10 @@
+<head>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Fjalla+One|Montserrat|Poppins');
+  </style>
+</head>
 <div class="searchBarContainer">
+
   <mat-form-field>
     <input matInput="search" (keyup.enter)="searchChallenge(searchString)" class="searchInput" placeholder="Search by Title" [(ngModel)] ="searchString">
   </mat-form-field>

@@ -9,15 +9,18 @@
   justify-content: space-around;
   margin-bottom: 2rem;
   margin-left: 2rem;
+  font-family: 'Montserrat', sans-serif;
 }
 .cardActions{
   display: flex;
   justify-content: center;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .cardContent{
   display: flex;
   margin-left: 1rem;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .z-depth-4 {
@@ -41,8 +44,10 @@
 .challengeTitle {
     font-size: 2rem;
     color: 	#008080;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .cardContent {
   font-size: 1.6rem;
+  font-family: 'Montserrat', sans-serif;
 }

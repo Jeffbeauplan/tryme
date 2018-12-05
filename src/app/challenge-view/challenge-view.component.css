@@ -26,9 +26,11 @@ button{
 .title {
   font-size: 2rem;
   color: 	#008080;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .subtitle {
   font-size: 2rem;
   color: #000000;
+  font-family: 'Montserrat', sans-serif;
 }

@@ -80,8 +80,29 @@
 .challengeTitle {
     font-size: 2rem;
     color: 	#008080;
+    font-family: 'Montserrat', sans-serif;
 }
 
+.challengeAuthor {
+  font-family: 'Montserrat', sans-serif;
+}
 .cardContent {
   font-size: 1.6rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.tooltip-inner {
+    background-color: #008080;
+}
+.tooltip.bs-tooltip-right .arrow:before {
+    border-right-color: #008080 !important;
+}
+.tooltip.bs-tooltip-left .arrow:before {
+    border-left-color: #008080 !important;
+}
+.tooltip.bs-tooltip-bottom .arrow:before {
+    border-bottom-color: #008080 !important;
+}
+.tooltip.bs-tooltip-top .arrow:before {
+    border-top-color: #008080 !important;
 }
