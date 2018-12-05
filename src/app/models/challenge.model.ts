@@ -13,7 +13,7 @@ export class Challenge {
 export class Question {
   question: string = ''
   correctAnswer: string = ''
-  hint: string = ''
+  hint: string = 'No hint'
   wrongAnswers: string[]
   num: number
 }

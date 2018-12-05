@@ -36,6 +36,7 @@ export class ChallengeViewComponent implements OnInit {
         questionJSON["$key"] = question.key;
         questionJSON["num"] = parseInt(question.key)+1;
         this.questionList.push(questionJSON as Question)
+        console.log(questionJSON)
       })
 
       var challengeJSON = challenge.payload.toJSON();

@@ -9,7 +9,7 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatDialogModule,
-  MatSelectModule, MatSnackBarModule, MatSidenavModule
+  MatSelectModule, MatSnackBarModule, MatSidenavModule, MatTooltipModule
 } from '@angular/material';
 import {FormsModule} from "@angular/forms";
 import {PlayTriviaComponent} from './play-trivia/play-trivia.component';
@@ -67,6 +67,7 @@ const appRoutes: Routes =[
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    MatTooltipModule,
     MatCardModule,
     MatSidenavModule,
     MatButtonModule,

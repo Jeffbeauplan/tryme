@@ -8,6 +8,7 @@ import {ReportDialogComponent} from "../report-dialog/report-dialog.component";
 import {Router} from "@angular/router";
 import {MatDialog, MatSnackBar} from "@angular/material";
 import {DeleteConfirmationDialogComponent} from "../delete-confirmation-dialog/delete-confirmation-dialog.component";
+import {SearchObject} from "../models/search.model";
 
 @Component({
   selector: 'app-my-challenges',
@@ -19,6 +20,7 @@ export class MyChallengesComponent implements OnInit {
   searchString : string;
   currentUser: any;
   showSearch: boolean = false;
+  search: SearchObject = new SearchObject();
 
   constructor(public dialog: MatDialog, private firebaseService: FirebaseService, private challengeService: ChallengeService, private userServive: UserService, private router: Router, public snackBar: MatSnackBar) { }
 
