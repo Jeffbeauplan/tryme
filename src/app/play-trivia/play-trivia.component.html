@@ -1,3 +1,8 @@
+<head>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Fjalla+One|Montserrat|Poppins');
+  </style>
+</head>
 <div class="pageContainer">
   <mat-card *ngIf="showSearch; else Filter" class="searchBarContainer">
     <span>Filter: </span>
@@ -29,7 +34,7 @@
       </div>
       <mat-card-header>
         <mat-card-title class="challengeTitle">{{challenge.title}}</mat-card-title>
-        <mat-card-subtitle>Author: {{challenge.author}}</mat-card-subtitle>
+        <mat-card-subtitle class="challengeAuthor">Author: {{challenge.author}}</mat-card-subtitle>
       </mat-card-header>
 
       <div class="cardContent">
@@ -40,7 +45,7 @@
 
       <br>
       <div class="md-actions cardActions" layout="row" layout-align="end center">
-        <button style="background-color: #4CAF50; color: white; margin-right: 2rem;" class="z-depth-4" (click)="goToChallenge(challenge.$key)" mat-button>Play</button>
+        <button style="background-color: #4CAF50; color: white; margin-right: 2rem;" class="z-depth-4" (click)="goToChallenge(challenge.$key)" mat-button data-toggle="tooltip" data-placement="bottom" title="Yay!" onmouseenter="$(this).tooltip('show')">Play</button>
       </div>
     </mat-card>
   </div>

@@ -1,3 +1,8 @@
+<head>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Fjalla+One|Montserrat|Poppins');
+  </style>
+</head>
 <div class="pageContainer">
   <!--<mat-card class="mainCard">-->
     <h2 style="color: teal" class="pageTitle">Create a Challenge</h2>
@@ -41,7 +46,7 @@
               <input class="cardInput" [(ngModel)]="question.correctAnswer"/>
             </div>
             <div class="cardItem">
-              <span>Hint: </span>
+              <span data-placement="left" title="Add a hint to help users answer your question!" onmouseenter="$(this).tooltip('show')">Hint: </span>
               <input class="cardInput" [(ngModel)]="questionList[i-1].hint"/>
             </div>
           </div>

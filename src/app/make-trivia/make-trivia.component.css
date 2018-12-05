@@ -10,31 +10,37 @@
 
 .pageTitle{
   padding-bottom: 1rem;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .optionTitle{
   padding-right: 3px;
   padding-bottom: 5rem;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .option {
   padding-bottom: 5rem;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .cardOption{
   margin-bottom: 2rem;
   width: 35rem;
+  font-family: 'Montserrat', sans-serif;
 }
 .cardItem{
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   padding-bottom: 2px;
+  font-family: 'Montserrat', sans-serif;
 
 }
 .cardInput{
   display: flex;
   align-items: flex-end;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .mainCard {
@@ -43,6 +49,7 @@
   justify-content: space-between;
   align-items: center;
   flex-flow: column nowrap;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .questionActionButtons {
@@ -51,6 +58,7 @@
   flex-flow: row nowrap;
   justify-content: flex-start;
   width: 150px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .pageActionButtons {
@@ -59,10 +67,15 @@
   flex-flow: row nowrap;
   justify-content: center;
   width: 150px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 button{
   margin-bottom: 2rem;
   margin: 1rem;
+  font-family: 'Montserrat', sans-serif;
 }
 
+.tooltip {
+  color: 	#008080;
+}
