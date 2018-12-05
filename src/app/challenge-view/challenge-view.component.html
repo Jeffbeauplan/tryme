@@ -1,4 +1,4 @@
-<div *ngIf="questionList" class="md-padding questionListContainer" layout="col" layout-wrap>
+<div *ngIf="questionList" class="md-padding questionListContainer" layout="col" id="bg" layout-wrap>
   <mat-card *ngFor="let question of questionList" class="z-depth-4 cardItem" md-whiteframe="11"  flex-sm="45" flex-gt-sm="35" flex-gt-md="25" style="width: 500px;">
     <mat-card-header>
       <mat-card-title>Question: {{question.num}}</mat-card-title>

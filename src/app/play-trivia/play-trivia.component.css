@@ -52,7 +52,7 @@
   flex-flow: row nowrap;
   padding-right: 20%;
   padding-left: 20%;
-  background-color: teal;
+  background-color: teal
 }
 
 .searchInput{
@@ -65,6 +65,8 @@
 .pageContainer {
   background-color: #f2f2f2;
   margin-top: -2rem;
+  height: 880px;
+
 }
 
 .filterButton {
@@ -75,4 +77,47 @@
 
 .btnSpace{
   padding-bottom: 1rem;
+}
+
+#bg img {
+  position: absolute;
+  background: url("../../assets/images/bg-21.png") repeat-y;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  min-width: 100%;
+  max-height: 1050px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: 100%;
+}
+.bg {
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../assets/images/bg-21.png");
+
+  background-repeat: repeat;
+  /*background-position: 50% 90%, 50% bottom, center;*/
+}
+#overlay {
+  position: absolute; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+}
+.color-overlay{
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  opacity: .1;
+  position: absolute;
+
 }

@@ -6,7 +6,10 @@
   align-items: center;
   flex-flow: column nowrap;
   padding-bottom: 50rem;
+  background: rgba(0,0,20,0.5);
+
 }
+
 
 .pageTitle{
   padding-bottom: 1rem;
