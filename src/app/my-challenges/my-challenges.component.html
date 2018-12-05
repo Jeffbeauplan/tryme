@@ -1,27 +1,48 @@
-<div class="searchBarContainer">
-  <mat-form-field>
-    <input matInput="search" (keyup.enter)="searchChallenge(searchString)" class="searchInput" placeholder="Search by Title" [(ngModel)] ="searchString">
-  </mat-form-field>
-  <!--<button mat-button class= "searchButton" (click)="searchChallenge(searchString)" >Search</button>-->
-</div>
+<div class="pageContainer">
+  <mat-card *ngIf="showSearch; else Filter" class="searchBarContainer">
+    <span>Filter: </span>
+    <mat-form-field>
+      <input matInput="search" (keyup.enter)="searchChallenge(search.title, search.author)" class="searchInput" placeholder="Title" [(ngModel)] ="search.title">
+    </mat-form-field>
 
-<div *ngIf="challengeList" class='md-padding gridWrapper' layout="row" layout-wrap>
-  <mat-card *ngFor="let challenge of challengeList" class="z-depth-4 cardItem" md-whiteframe="11"  flex-sm="45" flex-gt-sm="35" flex-gt-md="25" style="width: 350px;">
-    <mat-card-header>
-      <mat-card-title>{{challenge.title}}</mat-card-title>
-      <mat-card-subtitle>Author: {{challenge.author}}</mat-card-subtitle>
-    </mat-card-header>
+    <mat-form-field>
+      <input matInput="search" (keyup.enter)="searchChallenge(search.title, search.author)" class="searchInput" placeholder="Author" [(ngModel)] ="search.author">
+    </mat-form-field>
 
-    <div class="cardContent">
+    <mat-select placeholder="Select Category" [(ngModel)]="search.category" style="width: 250px">
+      <mat-option value="Educational">Educational</mat-option>
+      <mat-option value="History">History</mat-option>
+      <mat-option value="Food">Food</mat-option>
+      <mat-option value="Cars">Cars</mat-option>
+    </mat-select>
+    <button type="button" class="btn btn-dark" (click)="searchChallenge(searchString)" >Search</button>
+    <button type="button " class="btn btn-dark" (click)="showSearch = !showSearch">Hide</button>
+  </mat-card>
+
+  <div *ngIf="challengeList" class='md-padding gridWrapper' layout="row" layout-wrap>
+    <mat-card *ngFor="let challenge of challengeList" class="z-depth-4 cardItem" md-whiteframe="11"  flex-sm="45" flex-gt-sm="35" flex-gt-md="25" style="width: 350px;">
+      <mat-card-header>
+        <mat-card-title>{{challenge.title}}</mat-card-title>
+        <mat-card-subtitle>Author: {{challenge.author}}</mat-card-subtitle>
+      </mat-card-header>
+
+      <div class="cardContent">
       <span>Questions: {{challenge.numberOfQuestions}} <br>
       Top Score: {{challenge.topScore}} <br>
       Times Played: {{challenge.timesPlayed}}<br></span>
-    </div>
+      </div>
 
-    <br>
-    <div class="md-actions cardActions" layout="row" layout-align="end center">
-      <button style="background-color: #4CAF50; color: white; margin-right: 2rem;" class="z-depth-4" mat-button>Play</button>
-      <button style="background-color: #2196F3; color: white" class="z-depth-4" mat-button>Report</button>
-    </div>
-  </mat-card>
+      <br>
+      <div class="md-actions cardActions" layout="row" layout-align="end center">
+        <button style="background-color: #4CAF50; color: white; margin-right: 2rem;" class="z-depth-4" (click)="goToChallenge(challenge.$key)" mat-button>Play</button>
+        <button style="background-color: cornflowerblue; color: white; margin-right: 2rem;" class="z-depth-4" (click)="updateChallenge(challenge.$key)" mat-button>Update</button>
+        <button style="background-color: #2196F3; color: white" class="z-depth-4" (click)="openDialog(challenge)" mat-button>Delete</button>
+      </div>
+    </mat-card>
+  </div>
+
+  <ng-template #Filter>
+    <div class="btnSpace"></div>
+    <button type="button " class="btn btn-dark filterButton" (click)="showSearch = !showSearch">Show Filter</button>
+  </ng-template>
 </div>

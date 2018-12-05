@@ -9,6 +9,7 @@ import {ReportService} from "../service/report.service";
 import {MatDialog, MatSnackBar} from "@angular/material";
 import {ReportDialogComponent} from "../report-dialog/report-dialog.component";
 import {SearchObject} from "../models/search.model";
+import {DeleteConfirmationDialogComponent} from "../delete-confirmation-dialog/delete-confirmation-dialog.component";
 
 @Component({
   selector: 'app-play-trivia',
@@ -23,7 +24,7 @@ export class PlayTriviaComponent implements OnInit {
   reason: string;
   search: SearchObject = new SearchObject();
   showSearch: boolean = true;
-  isAdmin: boolean = false;
+  admin: boolean = false;
 
 
   constructor(public dialog: MatDialog, private firebaseService: FirebaseService, private challengeService: ChallengeService, private router: Router,
@@ -31,8 +32,8 @@ export class PlayTriviaComponent implements OnInit {
 
   ngOnInit() {
     this.currentUser = this.userService.getCurrentUser();
+    this.isAdmin();
     this.getChallenges()
-
   }
 
   getChallenges() {
@@ -41,14 +42,12 @@ export class PlayTriviaComponent implements OnInit {
       challenge.forEach(element => {
         var challengeJSON = element.payload.toJSON();
         challengeJSON["$key"] = element.key;
-        this.challengeList.push(challengeJSON as Challenge);
+        this.challengeList.unshift(challengeJSON as Challenge);
       })
-
-      //console.log(this.challengeList)
     });
   }
 
-  searchChallenge(title: string, author: string) {
+  searchChallenge(title: string, author: string, category: string) {
     this.challengeService.getData().snapshotChanges().subscribe(challenge => {
       var tempList = this.challengeList;
       this.challengeList = [];
@@ -56,14 +55,14 @@ export class PlayTriviaComponent implements OnInit {
         var challengeJSON = element.payload.toJSON();
         challengeJSON["$key"] = element.key;
         if (~challengeJSON["title"].toString().toLowerCase().indexOf(title.toLocaleLowerCase())
-          && ~challengeJSON["author"].toString().toLowerCase().indexOf(author.toLocaleLowerCase())) this.challengeList.push(challengeJSON as Challenge);
+          && ~challengeJSON["author"].toString().toLowerCase().indexOf(author.toLocaleLowerCase())
+          && ~challengeJSON["category"].toString().indexOf(category)) this.challengeList.push(challengeJSON as Challenge);
       })
 
       if(this.challengeList.length < 1) {
         this.challengeList = tempList;
         this.openSnackBar("No challenges found");
       }
-      //console.log(this.challengeList)
     });
 
   }
@@ -81,12 +80,12 @@ export class PlayTriviaComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       // this.reason = result;
-      this.reportChallenge(challenge, result)
+      if(result) this.reportChallenge(challenge, result)
     });
   }
 
   reportChallenge(challenge: Challenge, reason: string) {
-    var reportItem = new Report(challenge.author, reason, challenge.$key);
+    var reportItem = new Report(challenge.author, reason, challenge.$key, challenge);
     this.reportService.insertReport(reportItem);
     this.openSnackBar("Successfully reported " + challenge.title)
   }
@@ -95,5 +94,29 @@ export class PlayTriviaComponent implements OnInit {
     this.snackBar.open(message, '', {
       duration: 2000,
     });
+  }
+
+  deleteChallenge(challengeId: string) {
+    this.challengeService.deleteChallenge(challengeId)
+  }
+
+  openDeleteConfirmation(challenge: Challenge) {
+    const dialogRef = this.dialog.open(DeleteConfirmationDialogComponent, {
+      width: '250px',
+      data: challenge
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      if(result) this.deleteChallenge(challenge.$key);
+    });
+  }
+
+  isAdmin() {
+    this.userService.getData().snapshotChanges().subscribe( users => {
+      users.forEach( user => {
+        if (user.key == this.currentUser.uid.toString()) this.admin = true;
+      })
+    })
   }
 }

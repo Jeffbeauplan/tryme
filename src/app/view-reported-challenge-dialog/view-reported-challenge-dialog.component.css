@@ -1,6 +1,6 @@
 .questionListContainer {
-  margin-left: 30%;
-  margin-right: 10%;
+  /*margin-left: 30%;*/
+  /*margin-right: 10%;*/
   display: flex;
   justify-content: center;
   flex-flow: column wrap;
@@ -9,11 +9,12 @@
 .cardItem{
   justify-content: space-around;
   margin-bottom: 2rem;
-  margin-left: 2rem;
+  margin-left: -1rem;
+  width: 200px;
 }
 
 .submitButton {
-  margin-left: 22rem;
+  justify-content: center;
 }
 
 .viewAnswersButton{

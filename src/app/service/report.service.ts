@@ -23,7 +23,11 @@ export class ReportService {
       user: report.user,
       reason: report.reason,
       date: report.date,
-      challengeId: report.challengeKey
+      challengeKey: report.challengeKey,
+      challengeTitle: report.challengeTitle,
+      author: report.author,
+      category: report.category,
+      questions: report.questions
     })
   }
 

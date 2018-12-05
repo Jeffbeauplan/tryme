@@ -22,7 +22,6 @@ export class ChallengeService {
   }
 
   insertChallenge(challenge: Challenge){
-    delete challenge.questions[challenge.questions.length-1];
     this.challengeList.push({
       title: challenge.title,
       author: challenge.author,
@@ -35,16 +34,27 @@ export class ChallengeService {
     })
   }
 
-  updateChallenge(challenge: Challenge){
-    this.challengeList.update(challenge.$key,{
+  editChallenge(challenge: Challenge) {
+    this.challengeList.update(challenge.$key, {
+      title: challenge.title,
+      category: challenge.category,
+      questions: challenge.questions,
+      numberOfQuestions: challenge.numberOfQuestions
+    })
+  }
+
+  updateChallenge(challenge: Challenge) {
+    console.log(challenge)
+    this.challengeList.update(challenge.$key, {
       title: challenge.title,
       author: challenge.author,
       category: challenge.category,
       topScore: challenge.topScore,
       topScorer: challenge.topScorer,
       timesPlayed: challenge.timesPlayed,
-      questions: challenge.questions
-    })
+      questions: challenge.questions,
+      numberOfQuestions: challenge.numberOfQuestions
+    });
   }
 
   deleteChallenge($key: string) {

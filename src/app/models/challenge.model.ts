@@ -2,7 +2,7 @@ export class Challenge {
   $key: string
   title: string
   author: string
-  category: string[]
+  category: string
   topScore: number
   topScorer: string
   timesPlayed: number

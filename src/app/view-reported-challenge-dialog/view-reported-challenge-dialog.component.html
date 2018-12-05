@@ -1,0 +1,19 @@
+<span mat-dialog-title>Report</span>
+<div mat-dialog-content>
+  <span>Title: {{report.challengeTitle}}</span> <br>
+  <span>Author: {{report.author}}</span> <br><br>
+  <div *ngIf="report.questions" class="md-padding questionListContainer" layout="col" layout-wrap>
+    <mat-card *ngFor="let question of questionList" class="z-depth-4 cardItem" md-whiteframe="11"  flex-sm="45" flex-gt-sm="35" flex-gt-md="25" style="width: 300px;">
+      <mat-card-header>
+        <mat-card-title>Question: {{question.num}}</mat-card-title>
+        <mat-card-subtitle>{{question.question}}</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+  </div>
+</div>
+<div mat-dialog-actions class="submitButton">
+  <button mat-button  (click)="onCancelClick()">Close</button>
+  <!--<button mat-button [mat-dialog-close]="reason" cdkFocusInitial>Report</button>-->
+</div>
+
+

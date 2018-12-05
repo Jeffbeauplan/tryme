@@ -32,6 +32,8 @@ import { ChallengeViewComponent } from './challenge-view/challenge-view.componen
 import { ReportDialogComponent } from './report-dialog/report-dialog.component';
 import { GoogleMapComponent } from './google-map/google-map.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { DeleteConfirmationDialogComponent } from './delete-confirmation-dialog/delete-confirmation-dialog.component';
+import { ViewReportedChallengeDialogComponent } from './view-reported-challenge-dialog/view-reported-challenge-dialog.component';
 //Routes
 
 const appRoutes: Routes =[
@@ -39,6 +41,7 @@ const appRoutes: Routes =[
   {path: 'play', component: PlayTriviaComponent},
   {path: 'play/:id', component: ChallengeViewComponent},
   {path: 'make-trivia', component: MakeTriviaComponent},
+  {path: 'make-trivia/:id', component: MakeTriviaComponent},
   {path: 'my-challenges', component: MyChallengesComponent},
   {path: 'login', component: LoginComponent},
   {path: 'admin', component: AdminPanelComponent}
@@ -57,7 +60,9 @@ const appRoutes: Routes =[
     ChallengeViewComponent,
     ReportDialogComponent,
     GoogleMapComponent,
-    AdminPanelComponent
+    AdminPanelComponent,
+    DeleteConfirmationDialogComponent,
+    ViewReportedChallengeDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -83,6 +88,6 @@ const appRoutes: Routes =[
   ],
   providers: [FirebaseService, AuthService],
   bootstrap: [AppComponent],
-  entryComponents: [ReportDialogComponent]
+  entryComponents: [ReportDialogComponent, DeleteConfirmationDialogComponent, ViewReportedChallengeDialogComponent]
 })
 export class AppModule { }

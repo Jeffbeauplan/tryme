@@ -14,7 +14,7 @@ export class ReportDialogComponent implements OnInit {
   reason: string
   challenge: Challenge
 
-  constructor(public dialogRef: MatDialogRef<PlayTriviaComponent>,
+  constructor(public dialogRef: MatDialogRef<ReportDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public data: Challenge, private reportService: ReportService) { }
 
   ngOnInit() {
@@ -24,6 +24,7 @@ export class ReportDialogComponent implements OnInit {
   valueSelected(value: string) {
     this.reason = value;
   }
+
   onCancelClick(){
     this.dialogRef.close();
   }

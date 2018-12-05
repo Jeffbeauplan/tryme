@@ -1,18 +1,46 @@
-<div *ngIf="questionList" class="md-padding questionListContainer" layout="col" layout-wrap>
-  <mat-card *ngFor="let question of questionList" class="z-depth-4 cardItem" md-whiteframe="11"  flex-sm="45" flex-gt-sm="35" flex-gt-md="25" style="width: 500px;">
-    <mat-card-header>
-      <mat-card-title>Question: {{question.num}}</mat-card-title>
-      <mat-card-subtitle>{{question.question}}</mat-card-subtitle>
-    </mat-card-header>
+<div *ngIf="!submited; else showScore">
+  <div *ngIf="questionList" class="md-padding questionListContainer" layout="col" layout-wrap>
+    <mat-card *ngFor="let question of questionList" class="z-depth-4 cardItem" md-whiteframe="11"  flex-sm="45" flex-gt-sm="35" flex-gt-md="25" style="width: 500px;">
+      <mat-card-header>
+        <mat-card-title>Question: {{question.num}}</mat-card-title>
+        <mat-card-subtitle>{{question.question}}</mat-card-subtitle>
+      </mat-card-header>
 
-    <mat-card-content>
-      <input>
-    </mat-card-content>
-  </mat-card>
+      <mat-card-content>
+        <input [(ngModel)]="answerList[question.num-1]">
+      </mat-card-content>
+    </mat-card>
 
-  <!--<div *ngFor="let question of questionList">-->
-    <!--<span>{{question.question}}</span><br>-->
-    <!--<input>-->
-  <!--</div>-->
+    <button style="background-color: cornflowerblue; color: white; margin-right: 2rem; width: 100px;" class="z-depth-4 submitButton" (click)="submitChallenge()" mat-button>Submit</button>
+  </div>
 </div>
+
+<ng-template #showScore>
+  <div class="scoreContainer">
+    <span> Your score: {{score}}</span><br>
+    <span> Possible Score: {{questionList.length}}</span>
+  </div>
+  <div>
+    <button style="background-color: cornflowerblue; color: white; margin-right: 2rem; width: 150px;" class="z-depth-4 viewAnswersButton" (click)="viewAnswers = !viewAnswers" mat-button>View Answers</button>
+  </div>
+</ng-template>
+
+<div *ngIf="viewAnswers">
+  <div *ngIf="questionList" class="md-padding questionListContainer" layout="col" layout-wrap>
+    <mat-card *ngFor="let question of questionList" class="z-depth-4 cardItem" md-whiteframe="11"  flex-sm="45" flex-gt-sm="35" flex-gt-md="25" style="width: 500px;">
+      <mat-card-header>
+        <mat-card-title>Question: {{question.num}}</mat-card-title>
+        <mat-card-subtitle>{{question.question}}</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <span> Correct Answer: {{question.correctAnswer}}</span><br>
+        <span *ngIf="answerList[question.num-1]"> Your Answer: {{answerList[question.num-1]}}</span>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+
+
 

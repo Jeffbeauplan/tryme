@@ -9,7 +9,7 @@
 
     <div class="option">
       <span class="optionTitle">Category: </span>
-      <mat-select placeholder="Select Category" [(ngModel)]="testChallenge.category" style="width: 150px" multiple>
+      <mat-select placeholder="Select Category" [(ngModel)]="testChallenge.category" style="width: 150px">
         <mat-option value="Educational">Educational</mat-option>
         <mat-option value="History">History</mat-option>
         <mat-option value="Food">Food</mat-option>
@@ -23,18 +23,18 @@
       <!--<input *ngIf="testChallenge" [(ngModel)]="testChallenge.title"/>-->
     <!--</div>-->
 
-    <div class="option">
-      <mat-card class="cardOption" *ngFor="let i of array" (click)="showCount()">
+    <div class="option" *ngIf="testChallenge.questions">
+      <mat-card class="cardOption" *ngFor="let question of testChallenge.questions">
         <span>{{i}}</span>
         <mat-card-content>
           <div class="cardInfo">
             <div class="cardItem">
               <span class="cardLabel">Question: </span>
-              <input class="cardInput" [(ngModel)]="questionList[i-1].question"/>
+              <input class="cardInput" [(ngModel)]="question.question"/>
             </div>
             <div class="cardItem">
               <span>Correct Answer: </span>
-              <input class="cardInput" [(ngModel)]="questionList[i-1].correctAnswer"/>
+              <input class="cardInput" [(ngModel)]="question.correctAnswer"/>
             </div>
           </div>
         </mat-card-content>
@@ -42,9 +42,9 @@
       </mat-card>
     </div>
 
-    <div class="questionActionButtons">
-      <button mat-fab style="background-color: teal; color: white;" (click)="increaseArrayElement()">+</button>
-      <button [disabled]="array.length < 2" mat-fab style="background-color: teal; color: white;" (click)="decreaseArrayElement()">-</button>
+    <div *ngIf="testChallenge.questions" class="questionActionButtons">
+      <button mat-fab style="background-color: teal; color: white;" (click)="addQuestion()">+</button>
+      <button [disabled]="testChallenge.questions.length < 2" mat-fab style="background-color: teal; color: white;" (click)="removeQuestion()">-</button>
     </div>
 
     <div class="pageActionButtons">
