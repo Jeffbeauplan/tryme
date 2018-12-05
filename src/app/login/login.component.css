@@ -18,7 +18,7 @@
 .bg {
   width: 100%;
   height: 100vh;
-  background-image: url("../login/images/bg-04.jpeg");
+  background-image: url("../../assets/images/bg-20.jpg");
   /*background-size: 1920px, 1280px, cover;*/
   background-repeat: no-repeat;
   /*background-position: 50% 90%, 50% bottom, center;*/
@@ -34,7 +34,7 @@
 .container {
   display: flex;
   position: absolute;
-  top: 20%;
+  top: 10%;
   right: 50%;
   left: 35%;
   margin-top: 10%;
@@ -42,10 +42,11 @@
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  background-color: #f2f2f2;
+  background-color: rgba(0,0,20,0.6);
   padding: 20px 0 30px 0;
   width: 30%;
 }
+
 
 /* style inputs and link buttons */
 input,
