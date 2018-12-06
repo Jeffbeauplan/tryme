@@ -42,17 +42,24 @@ export class MyChallengesComponent implements OnInit {
     });
   }
 
-  searchChallenge(input: string) {
-    console.log(input )
+  searchChallenge(title: string, author: string, category: string) {
     this.challengeService.getData().snapshotChanges().subscribe(challenge => {
+      var tempList = this.challengeList;
       this.challengeList = [];
       challenge.forEach(element => {
         var challengeJSON = element.payload.toJSON();
         challengeJSON["$key"] = element.key;
-        if (challengeJSON["title"] == input && challengeJSON["author"] == this.currentUser.displayName) this.challengeList.push(challengeJSON as Challenge);
-      })
-      console.log(this.challengeList)
+        if (~challengeJSON["title"].toString().toLowerCase().indexOf(title.toLocaleLowerCase())
+          && ~challengeJSON["author"].toString().toLowerCase().indexOf(this.currentUser.displayName.toLocaleLowerCase())
+          && ~challengeJSON["category"].toString().indexOf(category)) this.challengeList.push(challengeJSON as Challenge);
+      });
+
+      if(this.challengeList.length < 1) {
+        this.challengeList = tempList;
+        this.openSnackBar("No challenges found");
+      }
     });
+
   }
 
   goToChallenge(challengeId: string) {

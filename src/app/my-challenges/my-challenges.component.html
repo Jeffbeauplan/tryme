@@ -7,12 +7,12 @@
   <mat-card *ngIf="showSearch; else Filter" class="searchBarContainer">
     <span>Filter: </span>
     <mat-form-field>
-      <input matInput="search" (keyup.enter)="searchChallenge(search.title, search.author)" class="searchInput" placeholder="Title" [(ngModel)] ="search.title">
+      <input matInput="search" (keyup.enter)="searchChallenge(search.title, search.author, search.category)" class="searchInput" placeholder="Title" [(ngModel)] ="search.title">
     </mat-form-field>
 
-    <mat-form-field>
-      <input matInput="search" (keyup.enter)="searchChallenge(search.title, search.author)" class="searchInput" placeholder="Author" [(ngModel)] ="search.author">
-    </mat-form-field>
+    <!--<mat-form-field>-->
+      <!--<input matInput="search" (keyup.enter)="searchChallenge(search.title, search.author, search.category)" class="searchInput" placeholder="Author" [(ngModel)] ="search.author">-->
+    <!--</mat-form-field>-->
 
     <mat-select placeholder="Select Category" [(ngModel)]="search.category" style="width: 250px">
       <mat-option value="">All</mat-option>
@@ -24,7 +24,7 @@
       <mat-option value="Pop Culture">Pop Culture</mat-option>
       <mat-option value="Riddle">Riddle</mat-option>
     </mat-select>
-    <button type="button" class="btn btn-dark" (click)="searchChallenge(searchString)" >Search</button>
+    <button type="button" class="btn btn-dark" (click)="searchChallenge(search.title, search.author, search.category)" >Search</button>
     <button type="button " class="btn btn-dark" (click)="showSearch = !showSearch">Hide</button>
   </mat-card>
 

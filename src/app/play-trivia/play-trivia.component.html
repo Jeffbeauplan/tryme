@@ -4,6 +4,9 @@
   </style>
 </head>
 <div class="pageContainer">
+  <div class="pageContainer" style="overflow: scroll;" id="bg">
+    <img src="../../assets/images/bg-21.png"/>
+    <div class="color-overlay"></div>
   <mat-card *ngIf="showSearch; else Filter" class="searchBarContainer">
     <span>Filter: </span>
     <mat-form-field>
@@ -32,6 +35,7 @@
     <mat-card *ngFor="let challenge of challengeList" class="z-depth-4 cardItem" md-whiteframe="11"  flex-sm="45" flex-gt-sm="35" flex-gt-md="25" style="width: 350px;">
       <div class="md-actions cardActions">
         <button style="background-color: transparent; color: gray;" class="reportFlag" (click)=" openDialog(challenge)"><i class="material-icons" matTooltip="Report">flag</i></button>
+        <button *ngIf="admin" style="background-color: transparent; color: gray;" class="editFlag" (click)=" openDeleteConfirmation(challenge)"><i class="material-icons" matTooltip="Delete">delete</i></button>
       </div>
       <mat-card-header>
         <mat-card-title class="challengeTitle">{{challenge.title}}</mat-card-title>
@@ -46,7 +50,7 @@
 
       <br>
       <div class="md-actions cardActions" layout="row" layout-align="end center">
-        <button style="background-color: #4CAF50; color: white; margin-right: 2rem;" class="z-depth-4" (click)="goToChallenge(challenge.$key)" matTooltip="Yay" mat-button>Play</button>
+        <button style="background-color: #4CAF50; color: white; margin-right: 2rem;" class="z-depth-4 playButton" (click)="goToChallenge(challenge.$key)" matTooltip="Yay" mat-button>Play</button>
       </div>
     </mat-card>
   </div>
