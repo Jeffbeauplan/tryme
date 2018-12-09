@@ -48,18 +48,36 @@ export class MakeTriviaComponent implements OnInit {
   }
 
   saveChallenge() {
-    this.testChallenge.numberOfQuestions = this.testChallenge.questions.length;
-    if(this.route.snapshot.paramMap.get('id')) {
-      this.challengeService.updateChallenge(this.testChallenge);
+    if(this.isValidChallenge()) {
+      this.testChallenge.numberOfQuestions = this.testChallenge.questions.length;
+      if (this.route.snapshot.paramMap.get('id')) {
+        this.challengeService.updateChallenge(this.testChallenge);
+      }
+      else {
+        this.testChallenge.author = this.userService.getCurrentUser().displayName;
+        this.testChallenge.topScore = 0;
+        this.testChallenge.timesPlayed = 0;
+        this.challengeService.insertChallenge(this.testChallenge);
+      }
+      this.openSnackBar()
+      this.clearPage()
     }
     else {
-      this.testChallenge.author = this.userService.getCurrentUser().displayName;
-      this.testChallenge.topScore = 0;
-      this.testChallenge.timesPlayed = 0;
-      this.challengeService.insertChallenge(this.testChallenge);
+      this.snackBar.open('Invalid Challenge: Missing Data! Please check title, category, and all questions', '', {duration: 4000})
     }
-    this.openSnackBar()
-    this.clearPage()
+  }
+
+  isValidChallenge() : boolean {
+    var foundEmpty = false;
+    if(this.testChallenge.title && this.testChallenge.category) {
+      this.testChallenge.questions.forEach( question => {
+        if(question.question === "" || question.correctAnswer === "" ) {
+          foundEmpty = true;
+        }
+      });
+      return !foundEmpty;
+    }
+    else return false;
   }
 
   clearPage() {
