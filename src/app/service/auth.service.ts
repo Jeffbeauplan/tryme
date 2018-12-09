@@ -23,6 +23,24 @@ export class AuthService {
 
   }
 
+  loginWithEmail(email: string, password: string) {
+    this.afAuth.auth.signInWithEmailAndPassword(email, password).catch( function (error) {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+
+
+    });
+  }
+
+  createAccountWithEmail(email: string, password: string){
+    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // ...
+    });
+  }
+
   logout() {
     this.afAuth.auth.signOut()
   }

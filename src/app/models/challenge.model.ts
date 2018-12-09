@@ -14,6 +14,6 @@ export class Question {
   question: string = ''
   correctAnswer: string = ''
   hint: string = 'No hint'
-  wrongAnswers: string[]
+  wrongAnswers: string[] = []
   num: number
 }
